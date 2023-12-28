@@ -1,0 +1,11 @@
+#codes pur installer le serveur et les outils necessaires a son bon fonctionnement
+npm install express mysql cors cookie-parser bcrypt jsonwebtoken multer path
+
+# code d'initialisation du serveur
+npm init -y
+
+#installation de nodemon dans le serveur
+npm install nodemon
+
+#installation de react et bootstrap 
+npm install axios bootstrap react-router-dom bootstrap-icons 
