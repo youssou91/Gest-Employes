@@ -1,1 +1,1 @@
-ouit degestion des employes d'une ptite entreprise
+outil degestion des employes d'une ptite entreprise
