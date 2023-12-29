@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Employe = () => {
   const [employe, setEmploye] = useState([])
-  const navigate = useNavigate()
   useEffect(() =>{
     axios.get('http://localhost:3000/auth/employes')
     .then(result =>{
@@ -21,7 +20,8 @@ const Employe = () => {
     axios.delete('http://localhost:3000/auth/delete_employe/'+id)
     .then(result => {
       if (result.data.Status) {
-        navigate('/dashboard/employes')
+        // navigate('/dashboard/employes')
+        window.location.reload()
       }else{
         alert(result.data.Error)
       }

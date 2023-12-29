@@ -43,6 +43,7 @@ router.get('/categories', (req, res) => {
         return res.json({Status: true, Result: result})
     })
 })
+
 //image upload
 const storage = multer.diskStorage({
     destination: (req, file, cb) =>{
@@ -99,6 +100,7 @@ router.get('/employes/:id', (req, res) => {
         return res.json({Status: true, Result: result})
     })
 })
+
 //API de modification des donnees recuperees
 router.put('/edit_employe/:id', (req, res) => {
     const id = req.params.id;
@@ -122,11 +124,50 @@ router.delete('/delete_employe/:id', (req, res) => {
     const id = req.params.id;
     const sql = "delete from employes where id = ?"
     con.query(sql, [id], (err, result) =>{ 
-        // console.log(values) 
+        if (err) return res.json({Status: false, Error: "Query Error "+err})
+        return res.json({Status: true, Result: result})
+    })
+}) 
+
+//API de decompte des enregistrements de la class admin
+router.get('/admin_compt',  (req, res) => {
+    const sql = "select count(id) as admin from admin";
+    con.query(sql, (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
     })
 })
 
+//API de decompte des enregistrements de la class employes
+router.get('/employe_compt',  (req, res) => {
+    const sql = "select count(id) as employes from employes";
+    con.query(sql, (err, result) =>{ 
+        if (err) return res.json({Status: false, Error: "Query Error "+err})
+        return res.json({Status: true, Result: result})
+    })
+})
 
+//API de decompte de la somme totale de tous les salaires reunis
+router.get('/salaire_compt',  (req, res) => {
+    const sql = "select sum(salaire) as salaire from employes";
+    con.query(sql, (err, result) =>{ 
+        if (err) return res.json({Status: false, Error: "Query Error "+err})
+        return res.json({Status: true, Result: result})
+    })
+})
+
+//API de recuperation des admin
+router.get('/admin_list',  (req, res) => {
+    const sql = "select * from admin";
+    con.query(sql, (err, result) =>{ 
+        if (err) return res.json({Status: false, Error: "Query Error "+err})
+        return res.json({Status: true, Result: result})
+    })
+})
+
+//API de deconnexion
+router.get('/logout',  (req, res) => {
+    res.clearCookie('token')
+    return res.json({Status: true})
+})
 export {router as adminRouter}
