@@ -20,9 +20,9 @@ const Categories = () => {
   return (
     <div className='px-5 mt-3'>
       <div className='d-flex justify-content-center'>
-        <h3>LISTE DES CATEGORIES </h3>
+        <h3>LISTE DES SERVICES </h3>
       </div>
-      <Link to="/dashboard/ajout_categorie" className='btn btn-success'> Ajouter Categorie </Link>
+      <Link to="/dashboard/ajout_categorie" className='btn btn-success'> Ajouter Service </Link>
       <div className='mt-3'>
         <table className='table'>
           <thead>

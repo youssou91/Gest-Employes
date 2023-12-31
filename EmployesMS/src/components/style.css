@@ -20,3 +20,13 @@ ul li:hover{
     height: 40px;
     border-radius: 50%;
 }
+.epm_det_image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.epm_det_image :hover{
+    zoom: 200%;
+    transform: scale(1.5); 
+    transition: transform 0.9s ease-in-out;
+}

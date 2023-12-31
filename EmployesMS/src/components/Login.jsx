@@ -19,6 +19,8 @@ const Login = () => {
         axios.post('http://localhost:3000/auth/adminlogin', values)
         .then(result => {
             if(result.data.loginStatus){
+                //protection des routes 
+                localStorage.setItem("valid", true)
                 navigate('/dashboard')
             }else{
                 setError(result.data.Error)
@@ -29,11 +31,11 @@ const Login = () => {
     }
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
-            <div className="p-3 rounded w-25 border loginForm">
+            <div className="p-3 rounded w-35 border loginForm">
                 <div className="text-warning">
                     {error &&  error}
                 </div>
-                <h2>Page de connexion </h2>
+                <h2 className='text-center'>Page de connexion Admin </h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email">

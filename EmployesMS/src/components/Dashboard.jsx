@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -10,7 +10,8 @@ const Dashboard = () => {
         axios.get('http://localhost:3000/auth/logout')
         .then(result => {
           if (result.data.Status) {
-            navigate('/adminlogin')
+            localStorage.removeItem("valid")
+            navigate('/')
           }else{
             alert(result.data.Error)
           }
@@ -41,8 +42,8 @@ const Dashboard = () => {
                             </li>
                             <li className="w-100">
                                 <Link className="nav-link text-white px-0 align-middle" to="/dashboard/categories">
-                                    <i className="fs-4 bi-columns ms-2"></i>
-                                    <span className="ms-2 d-done d-sm-inline">Categories</span>
+                                    <i className="fs-4 bi-briefcase ms-2"></i>
+                                    <span className="ms-2 d-done d-sm-inline">Services</span>
                                 </Link>
                             </li>
                             <li className="w-100">

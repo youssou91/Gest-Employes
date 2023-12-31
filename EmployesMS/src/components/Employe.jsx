@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import './style.css'
 
 const Employe = () => {
   const [employe, setEmploye] = useState([])
@@ -27,6 +28,15 @@ const Employe = () => {
       }
     })
   }
+  //Details
+  const {id} = useParams()
+  useEffect(() =>{
+    axios.get('http://localhost:3000/auth/details/'+id)
+    .then(result => {
+      setEmploye(result.data[0])
+    })
+    .catch(err => console.log(err))
+  }, [])
   return (
     <div>
       <div className="px-5 mt-3">
@@ -57,16 +67,20 @@ const Employe = () => {
                   </td>
                   <td>{e.nom}</td>
                   <td>{e.email}</td>
-                  <td>{e.salaire}</td>
+                  <td>$ {e.salaire}</td>
                   <td>{e.adresse}</td>
                   <td>
                     <Link to={'/dashboard/edit_employe/'+e.id} className="btn btn-info btn-sm me-2">
                       <i className="fs-6 bi-pencil ms-2"></i>
-                      <span className="ms-2 d-done d-sm-inline">Editer</span>
+                      <span className="ms-2 d-done d-sm-inline"> <strong> Editer </strong> </span>
+                    </Link>
+                    <Link to={'/dashboard/detail_employe/'+e.id} className="btn btn-primary btn-sm me-2">
+                      <i className="fs-6 bi-eye  ms-2"></i>
+                      <span className="ms-2 d-done d-sm-inline"> <strong> Voir </strong> </span>
                     </Link>
                     <button onClick={() => handleDelete(e.id)} className="btn btn-warning btn-sm me-2">
                       <i className="fs-6 bi-trash ms-2"></i>
-                      <span className="ms-2 d-done d-sm-inline">Supprimer</span>
+                      <span className="ms-2 d-done d-sm-inline"> <strong> Supprimer </strong> </span>
                     </button>
                   </td>
                 </tr>

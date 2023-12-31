@@ -80,11 +80,11 @@ const Home = () => {
           <hr />
           <div className='d-flex justify-content-between'>
             <h5>Total : </h5>
-            <h5> {totalSalaire} </h5>
+            <h5>$ {totalSalaire} </h5>
           </div>
         </div>
       </div>
-      <div className='mt-4 px-5 pt-3'>
+      <div className='mt-4 px-15 pt-3'>
         <h3>Liste des admins</h3>
         <table className='table'>
           <thead>

@@ -21,16 +21,16 @@ const AjoutCategorie = () => {
     return (
         <div className="d-flex justify-content-center align-items-center mt-3">
             <div className="p-3 rounded w-75 border">
-                <h3 className='text-center'> Ajouter Categories </h3>
+                <h3 className='text-center'> Ajouter Services </h3>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="categorie">
-                            <strong>Categorie :</strong>
+                            <strong>Service :</strong>
                         </label>
-                        <input type="text" name="categorie" placeholder="Entrer votre categorie" className="form-control rounded"
+                        <input type="text" name="categorie" placeholder="Entrer votre Service" className="form-control rounded"
                             onChange={(e) =>setCategorie(e.target.value) } />
                     </div>
-                    <button className="btn btn-primary w-100  mb-2"> Ajouter Categorie </button>
+                    <button className="btn btn-primary w-100  mb-2"> Ajouter Service </button>
                 </form>
             </div>
         </div>

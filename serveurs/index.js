@@ -1,6 +1,9 @@
 import express  from "express";
 import cors from 'cors';
 import { adminRouter } from "./Routes/AdminRoute.js";
+import { EmployeRouter } from "./Routes/EmployeRoute.js";
+import  Jwt  from "jsonwebtoken";
+import cookieParser from "cookie-parser";
 
 const app = express()
 app.use(cors({
@@ -9,9 +12,28 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
+app.use(cookieParser())
 app.use('/auth', adminRouter)
+app.use('/employes', EmployeRouter)
 app.use(express.static ('Public'))
 
+const verifyUser = (req, res, next) =>{
+    const token = req.cookiee.token;
+    if (token) {
+        Jwt.verify(token, "jwt_secret_key", (err, decoded) =>{
+            if (err) return res.json({Status: false, Error: "Token invalid"})
+            req.id = decoded.id;
+            req.role = decoded.role;
+            next()
+        })
+    }else{
+        return res.json({Status: false, Error:"Non authentifie"})
+    }
+}
+
+app.get('/verify', verifyUser, (req, res) =>{
+    return res.json({Status: true, role: req.role, id: req.id})
+})
 app.listen(3000, () => {
     console.log("Server is running")
 })
