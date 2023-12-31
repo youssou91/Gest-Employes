@@ -25,9 +25,6 @@ const AdminEmpDetails = () => {
     }, [])
     return (
         <div>
-            {/* <div className='p-2 d-flex justify-content-center shadow'>
-            <h4>Systeme de Gestion des Empoyes</h4>
-          </div> */}
             <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
                 <img src={'http://localhost:3000/Images/' + employe.image} alt="" className='epm_det_image' />
                 <div className='d-flex align-items-center flex-column mt-5'>
