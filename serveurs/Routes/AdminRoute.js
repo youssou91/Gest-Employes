@@ -58,9 +58,9 @@ const upload = multer({
 })
 //end-image upload
 
-//API pour instrtion d'employes
+//API pour insertion d'employes
 router.post('/ajout_employe', upload.single('image'), (req, res) =>{
-    const sql = 'INSERT INTO employes (nom, email, password, salaire, adresse, image, categorie_id) VALUES (?)';
+    const sql = 'INSERT INTO employes (nom, email, password, salaire, adresse, image, categorie_id, telephone, codePostal) VALUES (?)';
     //hachage du mot de pass
     bcrypt.hash(req.body.password, 10, (err, hash) =>{
         if (err) return res.json({Status: false, Error: "Query Error  haut"})
@@ -71,7 +71,9 @@ router.post('/ajout_employe', upload.single('image'), (req, res) =>{
             req.body.salaire,
             req.body.adresse,
             req.file.filename,
-            req.body.categorie_id
+            req.body.categorie_id,
+            req.body.telephone,
+            req.body.codePostal
         ]
         con.query(sql, [values], (err, result) => {
             if (err) {
@@ -104,16 +106,17 @@ router.get('/employes/:id', (req, res) => {
 //API de modification des donnees recuperees
 router.put('/edit_employe/:id', (req, res) => {
     const id = req.params.id;
-    const sql = 'UPDATE employes set nom = ?, email = ?, salaire = ?, adresse = ?, categorie_id = ? WHERE  id = ?';
+    const sql = 'UPDATE employes set nom = ?, email = ?, salaire = ?, adresse = ?, categorie_id = ?, telephone = ?, codePostal = ? WHERE  id = ?';
     const values = [
         req.body.nom,
         req.body.email,
         req.body.salaire,
         req.body.adresse,
-        req.body.categorie_id
+        req.body.categorie_id,
+        req.body.telephone,
+        req.body.codePostal
     ]           
     con.query(sql, [...values, id], (err, result) =>{
-        console.log(values)
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
     })

@@ -21,7 +21,6 @@ const Employe = () => {
     axios.delete('http://localhost:3000/auth/delete_employe/'+id)
     .then(result => {
       if (result.data.Status) {
-        // navigate('/dashboard/employes')
         window.location.reload()
       }else{
         alert(result.data.Error)

@@ -32,6 +32,8 @@ const AdminEmpDetails = () => {
                     <h3>Email : {employe.email}</h3>
                     <h3>Salaire : $ {employe.salaire}</h3>
                     <h3>Adesse : {employe.adresse}</h3>
+                    <h3>Telephone : {employe.telephone}</h3>
+                    <h3>Code Postal : {employe.codePostal}</h3>
                 </div>
                 {/* <div className='d-flex justify-content-between mt-5 mb-2'>
                     <button type='button' className='btn btn-primary me-5'>

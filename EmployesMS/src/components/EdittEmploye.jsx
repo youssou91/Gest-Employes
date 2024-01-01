@@ -35,6 +35,8 @@ const Editemploye = () => {
                     adresse: result.data.Result[0].adresse,
                     salaire: result.data.Result[0].salaire,
                     categorie_id: result.data.Result[0].categorie_id,
+                    telephone: result.data.Result[0].telephone,
+                    codePostal: result.data.Result[0].codePostal,
                 })
             }).catch(err => console.log(err))
     }, [])
@@ -52,68 +54,89 @@ const Editemploye = () => {
     }
 
     return (
-        <div className="d-flex justify-content-center align-items-center mt-3">
+        <div className="d-flex justify-content-center align-items-center mt-5">
             <div className="p-3 rounded w-75 border">
                 <h3 className="text-center">Edit employe</h3>
                 <form className="row g-1" onSubmit={handleSubmit}>
-                    <div className="col-12">
-                        <label htmlFor="inputNom" className="form-label">
-                            <strong>Nom :</strong>
-                        </label>
-                        <input
-                            type="text" className="form-control rounded-0" id="inputNom" placeholder="Enter nom"
-                            value={employe.nom}
-                            onChange={(e) =>
-                                setEmploye({ ...employe, nom: e.target.value })
-                            }
-                        />
+                    <div className='col-12 d-flex'>
+                        <div className='col-6 p-2'>
+                            <div className="col-12">
+                                <label htmlFor="inputNom" className="form-label">
+                                    <strong>Nom :</strong>
+                                </label>
+                                <input
+                                    type="text" className="form-control rounded-0" id="inputNom" placeholder="Enter nom"
+                                    value={employe.nom}
+                                    onChange={(e) =>
+                                        setEmploye({ ...employe, nom: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="inputEmail" className="form-label">
+                                    <strong>Email</strong>
+                                </label>
+                                <input
+                                    type="email" className="form-control rounded-0"  id="inputEmail4" placeholder="Enter Email"
+                                    autoComplete="off" value={employe.email}
+                                    onChange={(e) =>
+                                        setEmploye({ ...employe, email: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div className='col-12'>
+                                <label htmlFor="inputsalaire" className="form-label">
+                                    <strong>Salaire</strong>
+                                </label>
+                                <input type="text" className="form-control rounded-0" id="inputsalaire" placeholder="Enter salaire" 
+                                    autoComplete="off" value={employe.salaire}
+                                    onChange={(e) => 
+                                        setEmploye({ ...employe, salaire: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="inputadresse" className="form-label">
+                                    <strong>Adresse</strong>
+                                </label>
+                                <input type="text"   className="form-control rounded-0" id="inputadresse" placeholder="1234 Main St"
+                                    autoComplete="off" value={employe.adresse}
+                                    onChange={(e) => 
+                                        setEmploye({ ...employe, adresse: e.target.value })
+                                    }
+                                />
+                            </div>
+                        </div>
+                        <div className='col-6 p-2'>
+                            <div className="col-12">
+                                <label htmlFor="inputAdresse" className='form-label'>
+                                    <strong>Telephone :</strong>
+                                </label>
+                                <input type="number" name='inputTelephone' placeholder="Entrer le Numero de telephone"
+                                    value={employe.telephone} className="form-control "
+                                    onChange={(e) => setEmploye({ ...employe, telephone: e.target.value })} />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="inputAdresse" className='form-label'>
+                                    <strong>Code postal :</strong>
+                                </label>
+                                <input type="text" name='inputCodePostal' placeholder="Entrer le code postal"
+                                    value={employe.codePostal} className="form-control "
+                                    onChange={(e) => setEmploye({ ...employe, codePostal: e.target.value })} />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="categorie" className="form-label">
+                                    <strong>Service :</strong>
+                                </label>
+                                <select name="categorie" id="categorie" className="form-select"
+                                    onChange={(e) => setEmploye({ ...employe, categorie_id: e.target.value })}>
+                                    {categorie.map((c) => {
+                                        return <option key={c.id} value={c.id}>{c.nom}</option>;
+                                    })}
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-12">
-                        <label htmlFor="inputEmail" className="form-label">
-                            <strong>Email</strong>
-                        </label>
-                        <input
-                            type="email" className="form-control rounded-0"  id="inputEmail4" placeholder="Enter Email"
-                            autoComplete="off" value={employe.email}
-                            onChange={(e) =>
-                                setEmploye({ ...employe, email: e.target.value })
-                            }
-                        />
-                    </div>
-                    <div className='col-12'>
-                        <label htmlFor="inputsalaire" className="form-label">
-                            <strong>Salaire</strong>
-                        </label>
-                        <input type="text" className="form-control rounded-0" id="inputsalaire" placeholder="Enter salaire" 
-                            autoComplete="off" value={employe.salaire}
-                            onChange={(e) => 
-                                setEmploye({ ...employe, salaire: e.target.value })
-                            }
-                        />
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="inputadresse" className="form-label">
-                            <strong>Adresse</strong>
-                        </label>
-                        <input type="text"   className="form-control rounded-0" id="inputadresse" placeholder="1234 Main St"
-                            autoComplete="off" value={employe.adresse}
-                            onChange={(e) => 
-                                setEmploye({ ...employe, adresse: e.target.value })
-                            }
-                        />
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="categorie" className="form-label">
-                            <strong>Service :</strong>
-                        </label>
-                        <select name="categorie" id="categorie" className="form-select"
-                            onChange={(e) => setEmploye({ ...employe, categorie_id: e.target.value })}>
-                            {categorie.map((c) => {
-                                return <option key={c.id} value={c.id}>{c.nom}</option>;
-                            })}
-                        </select>
-                    </div>
-
                     <div className="col-12">
                         <button type="submit" className="btn btn-primary w-100">
                             Modifier employe
