@@ -35,16 +35,6 @@ const AdminEmpDetails = () => {
                     <h3>Telephone : {employe.telephone}</h3>
                     <h3>Code Postal : {employe.codePostal}</h3>
                 </div>
-                {/* <div className='d-flex justify-content-between mt-5 mb-2'>
-                    <button type='button' className='btn btn-primary me-5'>
-                        <i className="fs-2 bi-pencil ms-2"></i>
-                        <span className="ms-2 d-done d-sm-inline fs-2">Editer</span>
-                    </button>
-                    <button onClick={handleDelete} className='btn btn-danger'>
-                        <i className="fs-2 bi-power ms-2 "></i>
-                        <span className="ms-2 d-done d-sm-inline fs-2">Deconnexion</span>
-                    </button>
-                </div> */}
             </div>
         </div>
     )
