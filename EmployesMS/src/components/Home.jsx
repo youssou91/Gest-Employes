@@ -52,20 +52,19 @@ const Home = () => {
   return (
     <div>
       <div className='p-3 d-flex justify-content-around mt-3'>
-        <div className='p-3 pt-2 pb-3 border shadow-sm w-25'>
+        <div className='p-3 pt-2 pb-3 border shadow w-25'>
           <div className='text-center pb-1'>
             <h4>Admin</h4>
           </div>
           <hr />
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between '>
             <h5>Total :</h5>
             <h5>{totalAdmin}</h5>
           </div>
         </div>
-        <div className='px-3 pt-2 border shadow-sm w-25'>
+        <div className='px-3 pt-2 border shadow w-25'>
           <div className='text-center pb-1'>
             <h4>Employes</h4>
-
           </div>
           <hr />
           <div className='d-flex justify-content-between'>
@@ -73,7 +72,7 @@ const Home = () => {
             <h5> {totalEmploye}</h5>
           </div>
         </div>
-        <div className='px-3 pt-2 border shadow-sm w-25'>
+        <div className='px-3 pt-2 border shadow w-25'>
           <div className='text-center pb-1'>
             <h4>Salaires</h4>
           </div>

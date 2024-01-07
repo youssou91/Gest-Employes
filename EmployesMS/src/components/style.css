@@ -29,5 +29,5 @@ ul li:hover{
     zoom: 250%;
     border-radius: 10%;
     transform: scale(1.5); 
-    transition: transform 0.9s ease-in-out;
+    transition: transform 3s ease-in-out;
 }

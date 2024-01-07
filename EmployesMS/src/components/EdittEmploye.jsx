@@ -5,11 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Editemploye = () => {
     const { id } = useParams()
     const [employe, setEmploye] = useState({
-        nom: "",
-        email: "",
-        salaire: "",
-        adresse: "",
-        categorie_id: "",
+        nom: '',
+        email: '',
+        salaire: 0,
+        adresse: '',
+        categorie_id: '',
+        telephone: 0,
+        codePostal: '',
     });
     const [categorie, setCategorie] = useState([])
     const navigate = useNavigate()
@@ -62,10 +64,10 @@ const Editemploye = () => {
                         <div className='col-6 p-2'>
                             <div className="col-12">
                                 <label htmlFor="inputNom" className="form-label">
-                                    <strong>Nom :</strong>
+                                    <strong>Prenom & Nom :</strong>
                                 </label>
                                 <input
-                                    type="text" className="form-control rounded-0" id="inputNom" placeholder="Enter nom"
+                                    type="text" className="form-control rounded-0" id="inputNom" name="inputNom" 
                                     value={employe.nom}
                                     onChange={(e) =>
                                         setEmploye({ ...employe, nom: e.target.value })
@@ -77,7 +79,7 @@ const Editemploye = () => {
                                     <strong>Email</strong>
                                 </label>
                                 <input
-                                    type="email" className="form-control rounded-0"  id="inputEmail4" placeholder="Enter Email"
+                                    type="email" className="form-control rounded-0"  id="inputEmail" name="inputEmail" 
                                     autoComplete="off" value={employe.email}
                                     onChange={(e) =>
                                         setEmploye({ ...employe, email: e.target.value })
@@ -88,7 +90,7 @@ const Editemploye = () => {
                                 <label htmlFor="inputsalaire" className="form-label">
                                     <strong>Salaire</strong>
                                 </label>
-                                <input type="text" className="form-control rounded-0" id="inputsalaire" placeholder="Enter salaire" 
+                                <input type="text" className="form-control rounded-0" id="inputsalaire" name="inputsalaire" 
                                     autoComplete="off" value={employe.salaire}
                                     onChange={(e) => 
                                         setEmploye({ ...employe, salaire: e.target.value })
@@ -99,7 +101,7 @@ const Editemploye = () => {
                                 <label htmlFor="inputadresse" className="form-label">
                                     <strong>Adresse</strong>
                                 </label>
-                                <input type="text"   className="form-control rounded-0" id="inputadresse" placeholder="1234 Main St"
+                                <input type="text"   className="form-control rounded-0" id="inputadresse" name="inputadresse" 
                                     autoComplete="off" value={employe.adresse}
                                     onChange={(e) => 
                                         setEmploye({ ...employe, adresse: e.target.value })
@@ -109,18 +111,21 @@ const Editemploye = () => {
                         </div>
                         <div className='col-6 p-2'>
                             <div className="col-12">
-                                <label htmlFor="inputAdresse" className='form-label'>
+                                <label htmlFor="inputTelephone" className='form-label'>
                                     <strong>Telephone :</strong>
                                 </label>
-                                <input type="number" name='inputTelephone' placeholder="Entrer le Numero de telephone"
-                                    value={employe.telephone} className="form-control "
-                                    onChange={(e) => setEmploye({ ...employe, telephone: e.target.value })} />
+                                <input type="text"   className="form-control rounded-0" id="inputTelephone" name="inputTelephone" 
+                                    autoComplete="off" value={employe.telephone}
+                                    onChange={(e) => 
+                                        setEmploye({ ...employe, telephone: e.target.value })
+                                    }
+                                />
                             </div>
                             <div className="col-12">
-                                <label htmlFor="inputAdresse" className='form-label'>
+                                <label htmlFor="inputCodePostal" className='form-label'>
                                     <strong>Code postal :</strong>
                                 </label>
-                                <input type="text" name='inputCodePostal' placeholder="Entrer le code postal"
+                                <input type="text" id='inputCodePostal' placeholder="Entrer le code postal"
                                     value={employe.codePostal} className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, codePostal: e.target.value })} />
                             </div>

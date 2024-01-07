@@ -21,11 +21,11 @@ const AjoutEmploye = () => {
         nom: '',
         email: '',
         password: '',
-        salaire: '',
+        salaire: 0,
         adresse: '',
         image: '',
         categorie_id: '',
-        telephone: '',
+        telephone: 0,
         codePostal: '',
     })
     //ajoiut des donnees
@@ -59,37 +59,37 @@ const AjoutEmploye = () => {
                         <div className='col-6 p-2'>
                             <div className="col-12">
                                 <label htmlFor="inputName" className='form-label'>
-                                    <strong>Nom :</strong>
+                                    <strong>Prenom & Nom :</strong>
                                 </label>
-                                <input type="text" name='inputName' placeholder="Entrer le Nom" className="form-control "
+                                <input type="text" id='inputName' name='inputName' placeholder="Entrer le Nom" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, nom: e.target.value })} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="inputEmail" className='form-label'>
                                     <strong>Email :</strong>
                                 </label>
-                                <input type="email" name='inputEmail' autoComplete='off' placeholder="Entrer l'Email" className="form-control "
+                                <input type="email" id='inputEmail' name='inputEmail' autoComplete='off' placeholder="Entrer l'Email" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, email: e.target.value })} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="inputPassword" className='form-label'>
                                     <strong>Mot de pass :</strong>
                                 </label>
-                                <input type="password" name='inputPassword' placeholder="Entrer le  Mot de pass" className="form-control "
+                                <input type="password" id='inputPassword' placeholder="Entrer le  Mot de pass" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, password: e.target.value })} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="inputSalaire" className='form-label'>
                                     <strong>Salaire :</strong>
                                 </label>
-                                <input type="text" name='inputSalaire' placeholder="Entrer le Salaire" className="form-control "
+                                <input type="text" id='inputSalaire' name='inputSalaire' placeholder="Entrer le Salaire" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, salaire: e.target.value })} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="inputAdresse" className='form-label'>
                                     <strong>Adresse :</strong>
                                 </label>
-                                <input type="text" name='inputAdresse' placeholder="Entrer l'Adresse" className="form-control "
+                                <input type="text" id='inputAdresse' name='inputAdresse' placeholder="Entrer l'Adresse" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, adresse: e.target.value })} />
                             </div>
                         </div>
@@ -98,14 +98,14 @@ const AjoutEmploye = () => {
                                 <label htmlFor="inputTelephone" className='form-label'>
                                     <strong>Telephone :</strong>
                                 </label>
-                                <input type="number" name='inputTelephone' placeholder="Entrer le Numero de telephone" className="form-control "
+                                <input type="text" id='inputTelephone' name='inputTelephone' placeholder="Entrer le Numero de telephone" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, telephone: e.target.value })} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="inputCodePostal" className='form-label'>
                                     <strong>Code postal :</strong>
                                 </label>
-                                <input type="text" name='inputCodePostal' placeholder="Entrer le code postal" className="form-control "
+                                <input type="text" id='inputCodePostal' name='inputCodePostal' placeholder="Entrer le code postal" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, codePostal: e.target.value })} />
                             </div>
                             <div className="col-12">
