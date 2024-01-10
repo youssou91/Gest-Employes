@@ -57,62 +57,62 @@ const AjoutEmploye = () => {
                 <form className='row g-1' onSubmit={handleSubmit}>
                     <div className='col-12 d-flex'>
                         <div className='col-6 p-2'>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputName" className='form-label'>
                                     <strong>Prenom & Nom :</strong>
                                 </label>
-                                <input type="text" id='inputName' name='inputName' placeholder="Entrer le Nom" className="form-control "
+                                <input type="text" id='inputName' placeholder="Entrer le Nom" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, nom: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputEmail" className='form-label'>
                                     <strong>Email :</strong>
                                 </label>
-                                <input type="email" id='inputEmail' name='inputEmail' autoComplete='off' placeholder="Entrer l'Email" className="form-control "
+                                <input type="email" id='inputEmail' autoComplete='off' placeholder="Entrer l'Email" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, email: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputPassword" className='form-label'>
                                     <strong>Mot de pass :</strong>
                                 </label>
                                 <input type="password" id='inputPassword' placeholder="Entrer le  Mot de pass" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, password: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputSalaire" className='form-label'>
                                     <strong>Salaire :</strong>
                                 </label>
-                                <input type="text" id='inputSalaire' name='inputSalaire' placeholder="Entrer le Salaire" className="form-control "
+                                <input type="text" id='inputSalaire' placeholder="Entrer le Salaire" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, salaire: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputAdresse" className='form-label'>
                                     <strong>Adresse :</strong>
                                 </label>
-                                <input type="text" id='inputAdresse' name='inputAdresse' placeholder="Entrer l'Adresse" className="form-control "
+                                <input type="text" id='inputAdresse' placeholder="Entrer l'Adresse" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, adresse: e.target.value })} />
                             </div>
                         </div>
                         <div className='col-6 p-2'>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputTelephone" className='form-label'>
                                     <strong>Telephone :</strong>
                                 </label>
-                                <input type="text" id='inputTelephone' name='inputTelephone' placeholder="Entrer le Numero de telephone" className="form-control "
+                                <input type="text" id='inputTelephone' placeholder="Entrer le Numero de telephone" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, telephone: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputCodePostal" className='form-label'>
                                     <strong>Code postal :</strong>
                                 </label>
-                                <input type="text" id='inputCodePostal' name='inputCodePostal' placeholder="Entrer le code postal" className="form-control "
+                                <input type="text" id='inputCodePostal' placeholder="Entrer le code postal" className="form-control "
                                     onChange={(e) => setEmploye({ ...employe, codePostal: e.target.value })} />
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputCategorie" className='form-label'>
                                     <strong>Service :</strong>
                                 </label>
-                                <select name="inputCategorie" id="inputCategorie" className='form-select'
+                                <select  id="inputCategorie" className='form-select'
                                     onChange={(e) => setEmploye({ ...employe, categorie_id: e.target.value })}>
                                     <option value="">Choisir une categorie</option>
                                     {categorie.map(c => {
@@ -120,7 +120,7 @@ const AjoutEmploye = () => {
                                     })}
                                 </select>
                             </div>
-                            <div className="col-12">
+                           <div className="col-12 mb-3">
                                 <label htmlFor="inputImageFile" className='form-label'>
                                     <strong> Selectioner une image :</strong>
                                 </label>

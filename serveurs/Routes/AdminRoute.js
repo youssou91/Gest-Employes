@@ -65,7 +65,7 @@ router.post('/ajout_employe', upload.single('image'), (req, res) =>{
     bcrypt.hash(req.body.password, 10, (err, hash) =>{
         if (err) return res.json({Status: false, Error: "Query Error  haut"})
         const values = [
-            req.body.nom,
+            req.body.nom,  
             req.body.email,
             hash,
             req.body.salaire,

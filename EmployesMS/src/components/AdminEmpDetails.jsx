@@ -26,14 +26,14 @@ const AdminEmpDetails = () => {
     return (
         <div>
             <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
-                <img src={'http://localhost:3000/Images/' + employe.image} alt="" className='epm_det_image' />
+                <img src={'http://localhost:3000/Images/' + employe.image} alt="" className='epm_det_image'/>
                 <div className='d-flex align-items-center flex-column mt-5'>
-                    <h3>Nom : {employe.nom}</h3>
-                    <h3>Email : {employe.email}</h3>
-                    <h3>Salaire : $ {employe.salaire}</h3>
-                    <h3>Adesse : {employe.adresse}</h3>
-                    <h3>Telephone : {employe.telephone}</h3>
-                    <h3>Code Postal : {employe.codePostal}</h3>
+                    <h3><strong>Nom :</strong> {employe.nom}</h3>
+                    <h3><strong>Email :</strong> {employe.email}</h3>
+                    <h3><strong>Salaire :</strong> $ {employe.salaire}</h3>
+                    <h3><strong>Adesse :</strong> {employe.adresse}</h3>
+                    <h3><strong>Telephone :</strong> {employe.telephone}</h3>
+                    <h3><strong>Code Postal :</strong> {employe.codePostal}</h3>
                 </div>
             </div>
         </div>

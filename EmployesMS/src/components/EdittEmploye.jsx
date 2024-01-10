@@ -45,7 +45,7 @@ const Editemploye = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3000/auth/edit_employe/' + id, employe)
+        axios.put('http://localhost:3000/auth/edit_employe/'+id, employe)
             .then(result => {
                 if (result.data.Status) {
                     navigate('/dashboard/employes')
