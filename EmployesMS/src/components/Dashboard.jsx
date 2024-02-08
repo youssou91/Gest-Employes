@@ -25,7 +25,7 @@ const Dashboard = () => {
                     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                         <Link className="d-flex align-items-center pb-3 me-md-auto text-white text-decoration-none"
                             to="/dashboard" >
-                            <span className="fs-5 fw-bolder d-done d-sm-inline">Code With Yussuf </span>
+                            <span className="fs-5 fw-bolder d-done d-sm-inline">Code-With-Yussuf </span>
                         </Link>
                         <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center " id="menu">
                             <li className="w-100">
