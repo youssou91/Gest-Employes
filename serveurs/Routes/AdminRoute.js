@@ -8,7 +8,7 @@ import path from 'path'
 const router = express.Router()
 // connexion a la base de donnees 
 router.post("/adminlogin", (req, res) =>{
-    const sql = "SELECT * from admins Where email = ? and password = ?";
+    const sql = "SELECT * from admin Where email = ? and password = ?";
     con.query(sql, [req.body.email, req.body.password], (err, result) => {
         if(err) return res.json({ loginStatus: false, Error: "Erreur de requete"});
         if(result.length > 0) {
@@ -28,7 +28,7 @@ router.post("/adminlogin", (req, res) =>{
 
 // API D'ajout
 router.post('/ajout_categorie', (req, res) =>{
-    const sql = "INSERT INTO categorie (nom) VALUES (?)";
+    const sql = "INSERT INTO categories (nom) VALUES (?)";
     con.query(sql, [req.body.categorie], (err, result) =>{
         if (err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true, Result: result})
@@ -37,7 +37,7 @@ router.post('/ajout_categorie', (req, res) =>{
 
 //API pour lister les categories
 router.get('/categories', (req, res) => {
-    const sql = "SELECT *  FROM  categorie";
+    const sql = "SELECT *  FROM  categories";
     con.query(sql, (err, result) =>{
         if (err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true, Result: result})
@@ -60,7 +60,7 @@ const upload = multer({
 
 //API pour insertion d'employes
 router.post('/ajout_employe', upload.single('image'), (req, res) =>{
-    const sql = 'INSERT INTO employe (nom, email, password, salaire, adresse, image, categorie_id, telephone, codePostal) VALUES (?)';
+    const sql = 'INSERT INTO employes (nom, email, password, salaire, adresse, image, categorie_id, telephone, codePostal) VALUES (?)';
     //hachage du mot de pass
     bcrypt.hash(req.body.password, 10, (err, hash) =>{
         if (err) return res.json({Status: false, Error: "Query Error  haut"})
@@ -86,7 +86,7 @@ router.post('/ajout_employe', upload.single('image'), (req, res) =>{
 
 //API pour lister les employes
 router.get('/employes', (req, res) => {
-    const sql = "SELECT *  FROM  employe";
+    const sql = "SELECT *  FROM  employes";
     con.query(sql, (err, result) =>{
         if (err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true, Result: result})
@@ -96,7 +96,7 @@ router.get('/employes', (req, res) => {
 //API  de recuperation des donnees des employes en passant par l'id
 router.get('/employes/:id', (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT *  FROM  employe WHERE id = ?";
+    const sql = "SELECT *  FROM  employes WHERE id = ?";
     con.query(sql, [id], (err, result) =>{
         if (err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true, Result: result})
@@ -106,7 +106,7 @@ router.get('/employes/:id', (req, res) => {
 //API de modification des donnees recuperees
 router.put('/edit_employe/:id', (req, res) => {
     const id = req.params.id;
-    const sql = 'UPDATE employe set nom = ?, email = ?, salaire = ?, adresse = ?, categorie_id = ?, telephone = ?, codePostal = ? WHERE  id = ?';
+    const sql = 'UPDATE employes set nom = ?, email = ?, salaire = ?, adresse = ?, categorie_id = ?, telephone = ?, codePostal = ? WHERE  id = ?';
     const values = [
         req.body.nom,
         req.body.email,
@@ -125,7 +125,7 @@ router.put('/edit_employe/:id', (req, res) => {
 //API de suppression d'un employe pour un id donne
 router.delete('/delete_employe/:id', (req, res) => {
     const id = req.params.id;
-    const sql = "delete from employe where id = ?"
+    const sql = "delete from employes where id = ?"
     con.query(sql, [id], (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
@@ -134,7 +134,7 @@ router.delete('/delete_employe/:id', (req, res) => {
 
 //API de decompte des enregistrements de la class admin
 router.get('/admin_compt',  (req, res) => {
-    const sql = "select count(id) as admins from admins";
+    const sql = "select count(id) as admin from admin";
     con.query(sql, (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
@@ -143,7 +143,7 @@ router.get('/admin_compt',  (req, res) => {
 
 //API de decompte des enregistrements de la class employes
 router.get('/employe_compt',  (req, res) => {
-    const sql = "select count(id) as employe from employe";
+    const sql = "select count(id) as employes from employes";
     con.query(sql, (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
@@ -152,7 +152,7 @@ router.get('/employe_compt',  (req, res) => {
 
 //API de decompte de la somme totale de tous les salaires reunis
 router.get('/salaire_compt',  (req, res) => {
-    const sql = "select sum(salaire) as salaire from employe";
+    const sql = "select sum(salaire) as salaire from employes";
     con.query(sql, (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})
@@ -161,7 +161,7 @@ router.get('/salaire_compt',  (req, res) => {
 
 //API de recuperation des admin
 router.get('/admin_list',  (req, res) => {
-    const sql = "select * from admins";
+    const sql = "select * from admin";
     con.query(sql, (err, result) =>{ 
         if (err) return res.json({Status: false, Error: "Query Error "+err})
         return res.json({Status: true, Result: result})

@@ -114,7 +114,7 @@ const AjoutEmploye = () => {
                                 </label>
                                 <select  id="inputCategorie" className='form-select'
                                     onChange={(e) => setEmploye({ ...employe, categorie_id: e.target.value })}>
-                                    <option value="">Choisir une categorie</option>
+                                    <option value="">Choisir un service </option>
                                     {categorie.map(c => {
                                         return <option key={''} value={c.id}>{c.nom}</option>
                                     })}
