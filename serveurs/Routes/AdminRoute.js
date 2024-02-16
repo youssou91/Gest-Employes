@@ -77,7 +77,7 @@ router.post('/ajout_employe', upload.single('image'), (req, res) =>{
         ]
         con.query(sql, [values], (err, result) => {
             if (err) {
-                return res.json({Status: false, Error: "Query Error bas"})}
+                return res.json({Status: false, Error: "Query Error  "})}
             return res.json({Status: true})
         })
     })
